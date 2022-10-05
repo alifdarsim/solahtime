@@ -6,8 +6,8 @@ const solat = function (props) {
 
     const coordinate = refcoordinate(props.state, props.zone);
     const day = props.date;
-    console.log(day);
-    return;
+    // console.log(day);
+    // return;
 
     const lamda_k = timetohour(coordinate.lng.h, coordinate.lng.m, coordinate.lng.s) / 15;
     const gha_trans = 24 - lamda_k;
