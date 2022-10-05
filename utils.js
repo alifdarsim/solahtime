@@ -12,10 +12,6 @@ export const readabletime = (second) => {
     return secondsToHms(second);
 }
 
-function secondsToHms() {
-
-}
-
 function secondsToHms(d) {
     d = Number(d);
     var h = Math.floor(d / 3600);

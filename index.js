@@ -1,13 +1,15 @@
 import gha from "./gha.js";
 import { timetohour, readabletime } from "./utils.js";
+import refcoordinate from "./area.js";
 
-//all operation was done in second
-const solat = function (coordinate, day) {
-    if (coordinate === undefined) return nodata();
-    const lat = coordinate.lat;
-    const lng = coordinate.lng;
+const solat = function (props) {
 
-    const lamda_k = timetohour(lng.h, lng.m, 0) / 15;
+    const coordinate = refcoordinate(props.state, props.zone);
+    const day = props.date;
+    console.log(day);
+    return;
+
+    const lamda_k = timetohour(coordinate.lng.h, coordinate.lng.m, coordinate.lng.s) / 15;
     const gha_trans = 24 - lamda_k;
     const gha_t1 = gha(day, 2, 2022);
     const gha_t2 = gha(day + 1, 2, 2022) + 24;
@@ -38,8 +40,8 @@ let coord = {
 let props = {
     fard: "zohor",
     date: "02-01-2022",
-    state: "perak",
-    zone: "1"
+    state: "johor",
+    zone: "2"
 }
 
 const zohor = solat(props);
